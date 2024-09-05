@@ -1,5 +1,9 @@
 "use client";
-import { Container, Text, Title, Rating, Textarea, Button, Divider, Group, Pagination} from "@mantine/core";
+import { Container, Title, Pagination, Group } from "@mantine/core";
+import YourRating from "@components/YourRating";
+import YourReview from "@components/YourReview";
+import CommentReview from "@components/CommentReview";
+import Footer from "@components/Footer";
 
 export default function Home() {
   return (
@@ -7,45 +11,14 @@ export default function Home() {
       <Title order={2}>
         Food Review 🍕
       </Title>
-      <Title order={4} mt="sm">
-        Your rating
-      </Title>
-      <Rating size="lg" />
-      <Textarea
-        label="Your review"
-        placeholder="Do you enjoy eating?"
-        mt="xs"
-        minRows={3}
-      ></Textarea>
-      <Button type="submit" mt="xs" color="orange">
-        Submit Review
-      </Button>
-      <Divider my="sm"></Divider>
-      <Group justify="center">
-        <Title order={4}>
-          Elon Musk
-        </Title>
-        <Rating size="sm" value={5} readOnly />
-      </Group>
-      <Text ta="center">
-        Best pizza in this world. I give you X score.
-      </Text>
-      <Divider my="sm"></Divider>
-      <Group justify="center">
-        <Title order={4} ta="end">
-          Mark Zuck
-        </Title>
-        <Rating size="sm" value={4} readOnly />
-      </Group>
-      <Text ta="center">
-        My favourite part is pepperoni
-      </Text>
+    <YourRating />
+    <YourReview />
+    <CommentReview name="Elon Musk" rating={5} review="Best pizza in this world. I give you X score." />
+    <CommentReview name="Mark Zuck" rating={4} review="My favourite part is pepperoni" />
       <Group justify="center">
         <Pagination mt="md" total={20} color="orange" />
       </Group>
-      <Text ta="center" my="sm">
-        Copyright © 2024 Kanchai Khumdee 660610739
-      </Text>
+    <Footer year={2024} name="Kanchai Khumdee" studentId="660610739" />
     </Container>
   );
 }
